@@ -5,7 +5,7 @@ from fpdf import FPDF  # Importar FPDF
 import re
 from datetime import datetime
 
-# Configurar la base de datos
+# Configuración de la base de datos
 def init_db():
     conn = sqlite3.connect('productos.db')
     c = conn.cursor()
@@ -27,7 +27,7 @@ def init_db():
     ''')
     conn.commit()
     conn.close()
-
+# FUNCIONES
 # Función para agregar un producto
 def add_product():
     nombre = entry_nombre.get()
@@ -107,7 +107,7 @@ def generate_invoice():
         messagebox.showwarning("Advertencia", "Por favor, ingresa el documento del cliente.")
         return
 
-    # Crear el objeto PDF
+    # Crear PDF
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
@@ -132,7 +132,7 @@ def generate_invoice():
 
     messagebox.showinfo("Éxito", f"Factura generada: {pdf_file_name}")
 
-# Crear interfaz
+#  Interfaz
 app = tk.Tk()
 app.title("Facturación de Productos")
 
